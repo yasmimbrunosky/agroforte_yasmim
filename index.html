@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroForte: Futuro Sustentável com Pompom</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+</head>
+<body>
+
+    <div id="tela-splash" class="overlay">
+        <div id="p5-decoracao"></div> 
+        <div class="splash-card">
+            <div class="pompom-avatar">🐰✨</div>
+            <h1>Bem-vindo ao AgroForte</h1>
+            <p>Olá! Eu sou o <strong>Pompom</strong>, seu ajudante digital e especialista técnico.</p>
+            <div class="login-box">
+                <label for="input-nome">Como você se chama?</label>
+                <input type="text" id="input-nome" placeholder="Digite seu nome..." autocomplete="off">
+                <button id="btn-entrar" disabled>INICIAR JORNADA AGRO</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu-lateral" class="sidebar">
+        <button class="btn-fechar-menu" onclick="alternarMenuLateral()">×</button>
+        <h3>⚙️ Opções do Sistema</h3>
+        <hr>
+        <div class="menu-botoes-container">
+            <button onclick="alternarTema()">🌓 Alternar Tema</button>
+            <button onclick="aumentarFonte()">A+ Aumentar Fonte</button>
+        </div>
+        <div class="menu-creditos-rodape">
+            <p><strong>Fontes do Projeto:</strong></p>
+            <p>• Brasil Escola (UOL)</p>
+            <p>• Syngenta Mais Agro</p>
+        </div>
+    </div>
+
+    <div id="tela-home" class="pagina escondida">
+        <header>
+            <div class="nav-bar">
+                <div class="logo">🌿 AgroForte</div>
+                <div class="user-info">Produtor: <span id="span-nome">...</span></div>
+                
+                <button id="btn-tres-pontinhos" onclick="alternarMenuLateral()" aria-label="Menu Principal">⋮</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="pompom-ai" class="pompom-section">
+                <div class="pompom-header">
+                    <span class="pompom-img">🐰</span>
+                    <h3>Pompom: Especialista Agronômico IA</h3>
+                </div>
+                <div class="chat-box">
+                    <div id="pompom-resposta">Olá! Faça uma pergunta sobre agricultura. (Ex: "Água, plantio, coelho, drone, sustentável, tecnologia, biológico, carbono, agronomia de campo, gestão da fazenda, zootecnia, pecuária, dados, modelos, sustentabilidade e carbono, região, calendário, comunicação."</div>
+                </div>
+                <div class="search-group">
+                    <input type="text" id="campo-busca" placeholder="Ex: Fale sobre drones, plantio, região...">
+                    <button id="btn-perguntar">Perguntar ao Pompom</button>
+                </div>
+            </section>
+
+            <h2 class="titulo-secao">Enciclopédia Agro Interativa</h2>
+            <div id="grid-icones" class="icones-container"></div>
+        </main>
+    </div>
+
+    <div id="tela-detalhe" class="pagina escondida">
+        <div class="detalhe-wrapper">
+            <button class="btn-voltar" onclick="irParaHome()">← Voltar ao Início</button>
+            <div id="conteudo-detalhe"></div>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
+

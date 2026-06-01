@@ -1,0 +1,309 @@
+/* PALETA PASTEL*/
+:root {
+    --bg: #F7F9F7;
+    --verde-sage: #A3B18A;
+    --laranja-suave: #F4A261;
+    --azul-pastel: #A8DADC;
+    --texto: #344E41;
+    --card: #FFFFFF;
+    --botao-off: #D1D1D1;
+    --pompom: #FFB7B2;
+}
+
+body.dark-mode {
+    --bg: #1A1D1A; 
+    --card: #2D332D; 
+    --texto: #E8F0E8;
+    --pompom: #E5989B;
+    --verde-sage: #52796F;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg); color: var(--texto);
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* BARRA DE NAVEGAÇÃO */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.logo { font-weight: bold; font-size: 1.3rem; color: var(--verde-sage); }
+
+/* BOTÃO DE TRÊS PONTINHOS INTERATIVO */
+#btn-tres-pontinhos {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--texto);
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-tres-pontinhos:hover {
+    background: rgba(163, 177, 138, 0.2);
+    transform: rotate(90deg); /* Efeito divertido de rotação ao passar o mouse */
+}
+
+/* ESTRUTURA DO MENU LATERAL (SIDEBAR SLIDE) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Começa escondido para fora da tela */
+    width: 300px;
+    height: 100%;
+    background: var(--card);
+    z-index: 2000;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.sidebar.aberto {
+    right: 0; /* Desliza para dentro da tela */
+}
+
+.btn-fechar-menu {
+    position: absolute; top: 15px; left: 20px;
+    background: transparent; border: none; font-size: 2rem;
+    color: var(--texto); cursor: pointer;
+}
+
+.sidebar h3 { margin-top: 2rem; margin-bottom: 1rem; color: var(--verde-sage); }
+
+.menu-botoes-container { display: flex; flex-direction: column; gap: 15px; margin-top: 1.5rem; }
+.menu-botoes-container button {
+    padding: 0.8rem; background: var(--bg); border: 1px solid var(--verde-sage);
+    border-radius: 10px; color: var(--texto); font-weight: bold; cursor: pointer;
+    transition: all 0.2s;
+}
+.menu-botoes-container button:hover { background: var(--verde-sage); color: white; }
+.menu-creditos-rodape { margin-top: auto; font-size: 0.85rem; opacity: 0.7; line-height: 1.5; }
+
+/* SPLASH SCREEN EM OVERLAY */
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--verde-sage); z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#p5-decoracao { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+
+.splash-card {
+    background: white; padding: 3rem; border-radius: 30px; text-align: center;
+    z-index: 1001; box-shadow: 0 10px 40px rgba(0,0,0,0.1); width: 420px;
+}
+.pompom-avatar { font-size: 3rem; margin-bottom: 10px; }
+
+.login-box {
+    margin-top: 1.5rem; display: flex; flex-direction: column; text-align: left;
+}
+.login-box label { font-weight: bold; margin-bottom: 0.5rem; color: #344E41; }
+.login-box input { padding: 0.8rem; border-radius: 10px; border: 2px solid #EEE; font-size: 1rem; outline: none; }
+
+#btn-entrar {
+    width: 100%; padding: 1rem; border: none; border-radius: 15px; margin-top: 1.5rem;
+    background-color: var(--botao-off); color: #FFF; font-weight: bold; 
+    transition: all 0.4s ease; cursor: not-allowed;
+}
+#btn-entrar.active {
+    background-color: var(--laranja-suave); cursor: pointer; transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+}
+#btn-entrar.active:hover { transform: scale(1.02); }
+
+/* CONTAINER DA IA POMPOM */
+.pompom-section {
+    background: var(--card); margin: 2rem; padding: 2rem; border-radius: 25px;
+    border: 3px solid var(--pompom); box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+.pompom-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+.pompom-img { font-size: 2rem; }
+.chat-box { background: #FFF5F5; padding: 1.5rem; border-radius: 15px; margin: 1rem 0; min-height: 80px; color: #444; line-height: 1.6; font-size: 1.05rem; }
+body.dark-mode .chat-box { background: #3d3535; color: #eee; }
+
+.search-group { display: flex; gap: 10px; }
+.search-group input { flex: 1; padding: 1rem; border-radius: 12px; border: 2px solid #E0E0E0; font-size: 1rem; background: var(--card); color: var(--texto); }
+.search-group button { padding: 0 1.5rem; background: var(--verde-sage); border: none; color: white; border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.search-group button:hover { background: #8f9e76; }
+
+.titulo-secao { margin-left: 2rem; margin-top: 1rem; color: var(--verde-sage); }
+
+/* GRID DE ÍCONES COM EFEITOS INTERATIVOS AVANÇADOS */
+.icones-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; padding: 1rem 2rem 2rem 2rem;
+}
+
+.card-agro {
+    background: var(--card); padding: 2rem; border-radius: 20px;
+    text-align: center; cursor: pointer; position: relative; overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    border: 1px solid transparent;
+}
+
+/* EFEITO DOS EMOJIS NOS CARDS */
+.card-agro::before {
+    content: "🌱 ✨ 🌾 🚜 ✨ 🐝";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    font-size: 1.1rem;
+    opacity: 0;
+    text-align: center;
+    transition: bottom 0.4s ease, opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.card-agro:hover { 
+    transform: translateY(-10px) scale(1.02); 
+    border: 1px solid var(--laranja-suave); 
+    box-shadow: 0 15px 30px rgba(244, 162, 97, 0.2);
+}
+
+/* Dispara a subida dos emojis decorativos secundários */
+.card-agro:hover::before {
+    bottom: 12px;
+    opacity: 0.6;
+    animation: balancoLateral 2s ease-in-out infinite alternate;
+}
+
+@keyframes balancoLateral {
+    0% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+}
+
+.card-agro .icon { font-size: 3.5rem; margin-bottom: 1rem; transition: transform 0.3s ease; }
+.card-agro:hover .icon { transform: scale(1.2) rotate(5deg); }
+
+.card-agro h4 { margin-bottom: 10px; font-size: 1.4rem; color: var(--texto); position: relative; z-index: 2; }
+.card-agro p { font-size: 0.95rem; opacity: 0.8; line-height: 1.4; color: var(--texto); margin-bottom: 15px; position: relative; z-index: 2; }
+
+/* SEÇÃO DE DETALHES */
+.detalhe-wrapper { max-width: 900px; margin: 2rem auto; padding: 2.5rem; background: var(--card); border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.detalhe-flex { display: flex; gap: 2rem; margin-top: 1.5rem; align-items: center; }
+
+.emoji-decorativo-painel {
+    font-size: 8rem; padding: 2rem; background: rgba(163, 177, 138, 0.1);
+    border-radius: 25px; min-width: 180px; text-align: center; user-select: none;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.02);
+    animation: pulsoSuave 3s infinite alternate;
+}
+
+@keyframes pulsoSuave {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.texto-container { flex: 1; }
+.score-display { font-size: 1.2rem; font-weight: bold; margin-top: 15px; color: var(--verde-sage); text-align: center;}
+
+/* REGRAS DE TRANSIÇÃO */
+.pagina { width: 100%; min-height: 100vh; padding-top: 20px; }
+.escondida { display: none !important; }
+.btn-voltar { padding: 1rem 2rem; background: var(--verde-sage); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; margin-bottom: 1.5rem; transition: 0.2s;}
+.btn-voltar:hover { background: var(--laranja-suave); }
+
+/* RESPONSIVIDADE INTERNA (CRITÉRIO NÍVEL 4) */
+@media (max-width: 768px) {
+    .search-group { flex-direction: column; }
+    .splash-card { width: 90%; padding: 2rem; }
+    .icones-container { grid-template-columns: fr; }
+    .detalhe-flex { flex-direction: column; }
+    .emoji-decorativo-painel { font-size: 5rem; min-width: 100%; padding: 1rem; }
+}
+
+.artigo {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+body.dark .artigo {
+    background: #2b2b2b;
+    color: #fff;
+}
+
+/* Classe que mantém os ícones do menu invisíveis no início */
+.agro-hidden {
+  display: none !important;
+}
+
+/* Botão para Iniciar Jornada */
+.agro-btn-start {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.4);
+  transition: all 0.2s ease;
+}
+.agro-btn-start:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+}
+
+/* Modais e Estrutura interna */
+.agro-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 40px 20px;
+  overflow-y: auto;
+  display: none;
+  z-index: 10001;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.agro-modal-inner {
+  max-width: 650px;
+  margin: 0 auto;
+  background: rgba(20, 20, 20, 0.98);
+  padding: 30px;
+  border-radius: 12px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.agro-btn-primary {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
